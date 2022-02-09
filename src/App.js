@@ -1,5 +1,5 @@
 import './App.css';
-import useState from 'react'
+import {useState} from 'react'
 
 function App() {
 
@@ -7,7 +7,7 @@ function App() {
   const [entry, setEntry] = useState({})
 
 
-  let getEntries = async() => {
+  let getEntry = async(entry) => {
     let data = await fetch('http://localhost:4000/entries')
     let json = await data.json()
     setEntries(json)
@@ -24,6 +24,7 @@ function App() {
         <h1>Allergy Busters</h1>
       </header>
     </div>
-  ); }
+  )
+}
 
 export default App;
