@@ -1,30 +1,38 @@
-import './App.css';
-import {useState} from 'react'
+import "./App.css";
+import { useState, useEffect } from "react";
+import Landing from './components/Landing'
+// import NewEntry from './components/NewEntry'
+// import EntryDetail from './components/EntryDetail'
 
 function App() {
+  const [entries, setEntries] = useState([]);
+  const [entry, setEntry] = useState({});
 
-  const [entries, setEntries] = useState([])
-  const [entry, setEntry] = useState({})
-
-
-  let getEntry = async(entry) => {
-    let data = await fetch('http://localhost:4000/entries')
-    let json = await data.json()
-    setEntries(json)
+  //SHOW
+  let getEntries = async () => {
+    let data = await fetch('http://localhost:7200/entries')
+    let json = await data.json();
+      setEntries(json);
+      console.log(json)
   }
+
+  useEffect(() => {
+    getEntries();
+  }, []);
 
   let addEntry = (entry) => {
-    setEntries([...entries, entry])
-  }
+    setEntries([...entries, entry]);
+  };
 
 
   return (
     <div className="App">
-      <header>
         <h1>Allergy Busters</h1>
-      </header>
+        {/* <NewEntry setEntries={setEntries} addEntry={addEntry}/> */}
+        <Landing entries={entries} setEntries={setEntries}/>
+      {/* <EntryDetail entry={entry}/> */}
     </div>
-  )
+  );
 }
 
 export default App;
