@@ -21,7 +21,7 @@ const EntryDetail = () => {
 
   return (
     <>
-      <Link to='/entries'>Back</Link>
+      <button><Link to='/entries'>Back</Link></button>
       <div className = "details">
         <h3>Entry Details</h3>
         <h4><span>Date:</span> {entry.date} </h4>
