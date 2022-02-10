@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState , useEffect} from 'react';
 import {useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 const EntryDetail = () => {
@@ -20,6 +21,7 @@ const EntryDetail = () => {
 
   return (
     <>
+      <Link to='/entries'>Back</Link>
       <div className = "details">
         <h3>Entry Details</h3>
         <h4><span>Date:</span> {entry.date} </h4>
