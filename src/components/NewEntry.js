@@ -16,7 +16,7 @@ const NewEntry = ({addEntry}) => {
     let handleSubmit = async(e) => {
         e.preventDefault()
         // Adding new entry to our backend
-        let response = await fetch('http://localhost:4000/entries', {
+        let response = await fetch('http://localhost:7200/entries', {
             method: "POST", 
             body: JSON.stringify(
                 {

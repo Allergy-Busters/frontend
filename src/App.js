@@ -2,8 +2,9 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Landing from './components/Landing'
 import {Link , Routes, Route} from 'react-router-dom'
-// import NewEntry from './components/NewEntry'
+import NewEntry from './components/NewEntry'
 import EntryDetail from './components/EntryDetail'
+import EditEntry from "./components/EditEntry";
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -39,6 +40,8 @@ function App() {
           <Routes>
             <Route path="/entries" element={<Landing entries={entries} setEntries={setEntries}/>}></Route>
             <Route path="/entries/details/:id" element={<EntryDetail/>}></Route>
+            <Route path="/entries/edit/:id" element={<EditEntry/>}></Route>
+            <Route path="/entries/new" element={<NewEntry/>}></Route>
           </Routes>
       </main>
     </div>
