@@ -32,7 +32,9 @@ const EntryDetail = () => {
         <h5><span>How are you feeling?</span>{entry.potentialSymptoms}</h5>
         <h5><span>Picture of visible reactions:</span></h5><img src={entry.img} alt={entry.img}></img>
         <h5><span>Where were you when you noticed the reaction?</span>{entry.location}</h5>
-      </div>
+      </div>  
+      {/* <button><Link to=`/entries/edit/${entry._id}`>Edit</Link></button> */}
+
     </>
   )
 };
