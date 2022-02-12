@@ -5,6 +5,7 @@ import {Link , Routes, Route} from 'react-router-dom'
 import NewEntry from './components/NewEntry'
 import EntryDetail from './components/EntryDetail'
 import EditEntry from "./components/EditEntry";
+import Register from "./components/Register";
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -47,6 +48,7 @@ function App() {
             <Route path="/entries/details/:id" element={<EntryDetail setEntries={setEntries}/>}></Route>
             <Route path="/entries/edit/:id" element={<EditEntry/>}></Route>
             <Route path="/entries/new" element={<NewEntry addEntry={addEntry}/>}></Route>
+            <Route path="/register" element={<Register/>}></Route>
           </Routes>
       </main>
     </div>
