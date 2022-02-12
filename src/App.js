@@ -44,7 +44,7 @@ function App() {
       <main>
           <Routes>
             <Route path="/entries" element={<Landing entries={entries} setEntries={setEntries}/>}></Route>
-            <Route path="/entries/details/:id" element={<EntryDetail/>}></Route>
+            <Route path="/entries/details/:id" element={<EntryDetail setEntries={setEntries}/>}></Route>
             <Route path="/entries/edit/:id" element={<EditEntry/>}></Route>
             <Route path="/entries/new" element={<NewEntry addEntry={addEntry}/>}></Route>
           </Routes>
