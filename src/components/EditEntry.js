@@ -6,6 +6,7 @@ import {  useParams } from 'react-router-dom'
 const EditEntry = () => {
 
   const [entry, setEntry] = useState({
+    date: '',  
     outdoorTemp: '',
     visitOutside: '',
     diet: '',
@@ -45,6 +46,12 @@ let handleSubmit = async(e) => {
     console.log(response)
   }
 
+  let toggleCheckbox = () =>{
+    setEntry({...entry, visitOutside:!entry.visitOutside})
+    console.log(entry.visitOutside)
+}
+
+
   return (
     <form onSubmit= {handleSubmit}>
       
@@ -55,7 +62,7 @@ let handleSubmit = async(e) => {
             <input type="text" id="outdoorTemp" name="outdoorTemp" value={entry.outdoorTemp} onChange={handleChange}></input>
         
             <label>Visit outside: </label>
-            <input type="checkbox" id="visitOutside" name="visitOutside"/>
+            <input type="checkbox" id="visitOutside" name="visitOutside" onChange={toggleCheckbox} checked={!entry.visitOutside}/>
        
             <label htmlFor="diet">Diet: </label>
             <input type="text" id="diet" name="diet" value={entry.diet} onChange={handleChange}></input>
