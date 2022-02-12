@@ -34,6 +34,8 @@ function App() {
     setEntries([...entries, newEntry]);
   };
 
+  
+
 
   return (
     <div className="App">
