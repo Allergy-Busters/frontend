@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import {  useParams } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import {useNavigate} from 'react-router'
 
 
 const EditEntry = () => {
@@ -17,6 +19,7 @@ const EditEntry = () => {
   });
 
   let {id} = useParams()
+  let navigate = useNavigate()
 
   useEffect(()=> {
     const editDetails = async() => {
@@ -44,6 +47,7 @@ let handleSubmit = async(e) => {
         }  
     })
     console.log(response)
+    navigate(`/entries/details/${id}`)
   }
 
   let toggleCheckbox = () =>{
@@ -53,6 +57,8 @@ let handleSubmit = async(e) => {
 
 
   return (
+    <>
+    <button><Link to={`/entries/details/${id}`}>Back</Link></button>
     <form onSubmit= {handleSubmit}>
       
             <label>Today's Date: </label>
@@ -82,6 +88,7 @@ let handleSubmit = async(e) => {
             <input type="submit" value="Enter"/>
       
   </form>
+  </>
   )
 }
 

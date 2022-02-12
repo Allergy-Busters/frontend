@@ -30,6 +30,7 @@ const entryInFocus = (e) => {
 
   return (
     <div>
+        <button><Link to='/entries/new'>Add New Entry</Link></button>
         {displayEntries}
     </div>
   )
