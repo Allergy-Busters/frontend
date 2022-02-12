@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-
+import {useNavigate} from 'react-router'
 
 
 const NewEntry = ({addEntry}) => {
@@ -16,6 +16,8 @@ const NewEntry = ({addEntry}) => {
         location: ''
       });
 
+      let navigate = useNavigate()
+
     // const [outsideVisit, setOutsideVisit] = useState('');
 
     let handleSubmit = async(e) => {
@@ -25,17 +27,7 @@ const NewEntry = ({addEntry}) => {
         // Adding new entry to our backend
         let response = await fetch('http://localhost:7200/entries', {
             method: "POST", 
-            body: JSON.stringify(entry
-                // date : date,
-                // outdoorTemp : outdoorTemp,
-                // visitOutside : visitOutside,
-                // diet: diet,
-                // exercise: exercise,
-                // potentialSymptoms: potentialSymptoms,
-                // img: img,
-                // location: location
-            ),
-
+            body: JSON.stringify(entry),
             headers: {
                 'Content-Type':'application/json'
             }
@@ -45,6 +37,7 @@ const NewEntry = ({addEntry}) => {
         let newEntry = await response.json()
         console.log(newEntry)
         addEntry(newEntry)
+        navigate('/entries')
 
     }
 

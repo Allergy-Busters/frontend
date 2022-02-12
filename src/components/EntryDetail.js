@@ -33,7 +33,6 @@ const EntryDetail = ({setEntries}) => {
   
   return (
     <>
-      <button><Link to='/entries'>Back</Link></button>
       <div className = "details">
         <h3>Entry Details</h3>
         <h4><span>Date:</span> {entry.date} </h4>
@@ -45,9 +44,9 @@ const EntryDetail = ({setEntries}) => {
         <h5><span>Picture of visible reactions:</span></h5><img src={entry.img} alt={entry.img}></img>
         <h5><span>Where were you when you noticed the reaction?</span>{entry.location}</h5>
       </div>  
+      <button><Link to={`/entries/edit/${id}`}>Edit</Link></button>
        <button onClick={deleteEntry}><Link to='/entries'>Delete</Link></button>
-      {/* <button><Link to=`/entries/edit/${entry._id}`>Edit</Link></button> */}
-
+       <button><Link to='/entries'>Return to All Entries</Link></button>
     </>
   )
 };
