@@ -5,51 +5,55 @@ import { useState } from 'react';
 
 const NewEntry = ({addEntry}) => {
 
-    const [outdoorTemp, setOutdoorTemp] = useState('')
-    const [visitOutside, setVisitOutside] = useState('false')
-    const [diet, setDiet] = useState('')
-    const [exercise, setExercise] = useState('')
-    const [potentialSymptoms, setPotentialSymptoms] = useState('')
-    const [img, setImg] = useState('')
-    const [location, setLocation] = useState('')
+    const [entry, setEntry] = useState({
+        date: '',  
+        outdoorTemp: '',
+        visitOutside: false,
+        diet: '',
+        exercise: '',
+        potentialSymptoms: '',
+        img: '',
+        location: ''
+      });
+
+    // const [outsideVisit, setOutsideVisit] = useState('');
 
     let handleSubmit = async(e) => {
         e.preventDefault()
+        console.log(entry)
+        console.log("What we are looking for")
         // Adding new entry to our backend
         let response = await fetch('http://localhost:7200/entries', {
             method: "POST", 
-            body: JSON.stringify(
-                {
-                outdoorTemp: outdoorTemp,
-                visitOutside: true,
-                diet: diet,
-                exercise: exercise,
-                potentialSymptoms: potentialSymptoms,
-                img: img,
-                location: location
-            }
-            // ^ Need to check correct syntax for this 
+            body: JSON.stringify(entry
+                // date : date,
+                // outdoorTemp : outdoorTemp,
+                // visitOutside : visitOutside,
+                // diet: diet,
+                // exercise: exercise,
+                // potentialSymptoms: potentialSymptoms,
+                // img: img,
+                // location: location
             ),
+
             headers: {
                 'Content-Type':'application/json'
             }
-            // ^ Do we need to include this?
         })
         
         // Adding new entry to our frontend 
-        let entry = await response.json()
-        addEntry(entry)
+        let newEntry = await response.json()
+        console.log(newEntry)
+        addEntry(newEntry)
 
     }
 
     let handleChange = (e) => {
-        setOutdoorTemp(e.target.value)
-        setVisitOutside(e.target.value) 
-        setDiet(e.target.value)
-        setExercise(e.target.value)
-        setPotentialSymptoms(e.target.value)
-        setImg(e.target.value)
-        setLocation(e.target.value)
+        setEntry({...entry,[e.target.id]:e.target.value})
+     }
+
+    let toggleCheckbox = () =>{
+        setEntry({...entry, visitOutside:!entry.visitOutside})
     }
 
 
@@ -65,7 +69,7 @@ const NewEntry = ({addEntry}) => {
             <input type="text" id="outdoorTemp" name="outdoorTemp" placeholder="In ℉ or ℃" onChange={handleChange}/>
         
             <label>Visit outside: </label>
-            <input type="checkbox" id="visitOutside" name="visitOutside"/>
+            <input type="checkbox" id="visitOutside" name="visitOutside" onChange={toggleCheckbox} checked={!entry.visitOutside} />
        
             <label htmlFor="diet">Diet: </label>
             <input type="text" id="diet" name="diet" placeholder="Ex: eggs, milk, bread" onChange={handleChange}></input>

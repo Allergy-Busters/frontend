@@ -8,6 +8,8 @@ import EditEntry from "./components/EditEntry";
 
 function App() {
   const [entries, setEntries] = useState([]);
+
+
  
 
   // Landing
@@ -24,13 +26,14 @@ function App() {
 
   // Entry Details
 
-  // let getEntry = (entry) => {
+  // let getEntr = (entry) => {
   //   setEntry(entry)
   // }
 
-  let addEntry = (entry) => {
-    setEntries([...entries, entry]);
+  let addEntry = (newEntry) => {
+    setEntries([...entries, newEntry]);
   };
+
 
   return (
     <div className="App">
@@ -41,7 +44,7 @@ function App() {
             <Route path="/entries" element={<Landing entries={entries} setEntries={setEntries}/>}></Route>
             <Route path="/entries/details/:id" element={<EntryDetail/>}></Route>
             <Route path="/entries/edit/:id" element={<EditEntry/>}></Route>
-            <Route path="/entries/new" element={<NewEntry/>}></Route>
+            <Route path="/entries/new" element={<NewEntry addEntry={addEntry}/>}></Route>
           </Routes>
       </main>
     </div>
