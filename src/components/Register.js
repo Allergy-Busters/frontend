@@ -2,20 +2,42 @@ import { React, useState} from 'react'
 
 
 const Register = () => {
-
     const [user, setUser] = useState({
         username: '',  
         password: '',
         confirmPassword: '',
-        allergyOrIntolerance: ''
+        allergyOrIntolerance: '',
+        valid: null
       });
 
+    const[createUser, setCreateUser] = useState(user)
+    const[message, setMessage] = useState('')
+
+    const resetUser = () => {
+        setCreateUser({...user})
+        setMessage('')
+        console.log(resetUser)
+    }
+
+
       let handleSubmit = (e) =>{
-          console.log(e.target)
-      }
+          e.preventDefault()
+          if(createUser.password === createUser.confirmPassword){
+              setCreateUser({...createUser, valid: true})
+              setMessage(`${createUser.username}, you have successfully created a new account`)
+          }else{
+              setCreateUser({...createUser, valid: false})
+              setMessage('Passwords must match')
+          }
+        }
 
       let handleChange = (e) => {
         setUser({...user,[e.target.id]:e.target.value})
+        if(createUser.password === createUser.confirmPassword){
+            setMessage('Create an account.')
+        } else {
+            setMessage('Passwords Must Match')
+        }
      }
 
 
@@ -37,7 +59,9 @@ const Register = () => {
         <input type="allergyOrIntolerance" id="allergyOrIntolerance" name="allergyOrIntolerance" placeholder="Ex: Celiac, Eczema, Nuts, Lactose" onChange={handleChange}></input>
 
         <input type="submit" value="Register"/>
-</form>
+        <button type="button" className="reset" onClick={ resetUser }>Reset</button>
+        <p className={`${createUser.valid !=null ? createUser.valid ? "valid" : "invalid" : null}`} >{message}</p> 
+    </form>
     </>
   )
 }
