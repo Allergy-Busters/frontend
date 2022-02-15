@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 // import NewEntry from "./NewEntry";
 
 
-const Landing = ({entries, setEntries, entry, setEntry}) => {
+const Landing = ({entries, setEntries, entry, setEntry, toast, setToast}) => {
 
 const entryInFocus = (e) => {
 
@@ -30,6 +30,7 @@ const entryInFocus = (e) => {
 
   return (
     <div>
+        <h2>{toast}'s Log</h2>
         <button><Link to='/entries/new'>Add New Entry</Link></button>
         {displayEntries}
     </div>

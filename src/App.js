@@ -9,6 +9,7 @@ import Register from "./components/Register";
 
 function App() {
   const [entries, setEntries] = useState([]);
+  const[toast, setToast] = useState('');
 
 
  
@@ -44,11 +45,11 @@ function App() {
         {/* <Landing entries={entries} setEntries={setEntries}/> */}
       <main>
           <Routes>
-            <Route path="/entries" element={<Landing entries={entries} setEntries={setEntries}/>}></Route>
+            <Route path="/entries" element={<Landing entries={entries} setEntries={setEntries} toast={toast} setToast={setToast}/>}></Route>
             <Route path="/entries/details/:id" element={<EntryDetail setEntries={setEntries}/>}></Route>
             <Route path="/entries/edit/:id" element={<EditEntry/>}></Route>
             <Route path="/entries/new" element={<NewEntry addEntry={addEntry}/>}></Route>
-            <Route path="/register" element={<Register/>}></Route>
+            <Route path="/register" element={<Register toast={toast} setToast={setToast}/>}></Route>
           </Routes>
       </main>
     </div>
