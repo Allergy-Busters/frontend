@@ -25,10 +25,34 @@ const Login = ({toast, setToast}) => {
 
     let handleSubmit = (e) =>{
         e.preventDefault()
-        setToast(`${loggedInUser.username}`)
-        navigate(`/entries`)
-        }
-    // }
+
+        fetch('http://localhost:7200/session/login', {
+          method: "POST", 
+          body: JSON.stringify(loggedInUser),
+          headers: {
+            'Content-Type':'application/json'
+          }
+     
+        })
+        .then((res)=> {
+          return(
+            res.json()
+          )
+        })
+        .then((data)=> {
+          console.log(data)
+          if (data.status === 200){
+            setToast(loggedInUser.username)
+            navigate('/entries')
+          } else if (data.status === 400){
+              setMessage(data.msg)
+            } 
+          })
+         }
+
+        
+    
+    
     
 
     
@@ -36,16 +60,16 @@ const Login = ({toast, setToast}) => {
         <div>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange} ></input>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange} ></input>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange} ></input>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange} ></input>
 
-            <input type="submit" value="Login"/>
-            {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
-            <p>{message}</p> 
-    </form>
+                <input type="submit" value="Login"/>
+                {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
+                <p>{message}</p> 
+            </form>
             
 
         </div>

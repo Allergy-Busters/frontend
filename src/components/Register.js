@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 
 
 const Register = ({toast, setToast}) => {
+    
     const [user, setUser] = useState({
         username: '',  
         password: '',
@@ -25,18 +26,41 @@ const Register = ({toast, setToast}) => {
     // }
 
 
-      let handleSubmit = (e) =>{
-          e.preventDefault()
-          if(createUser.password === createUser.confirmPassword){
-              setCreateUser({...createUser, valid: true})
-              setToast(`${createUser.username}`)
-              navigate(`/entries`)
-            //   setMessage()
-          }else{
-              setCreateUser({...createUser, valid: false})
-              setMessage('Passwords must match')
+    let handleSubmit = (e) =>{
+
+      e.preventDefault()
+        // if(createUser.password === createUser.confirmPassword){
+        //   setCreateUser({...createUser, valid: true})
+        //   setToast(`${createUser.username}`)
+      fetch('http://localhost:7200/session/register', {
+          method: "POST", 
+          body: JSON.stringify(createUser),
+          headers: {
+            'Content-Type':'application/json'
           }
-        }
+        // })
+        // navigate(`/entries`)
+        // setMessage()
+        // }else{
+        //    setCreateUser({...createUser, valid: false})
+        //    setMessage('Passwords must match')
+        // }
+        })
+        .then((res)=> {
+          return(
+            res.json()
+          )
+        })
+        .then((data)=> {
+          console.log(data)
+          if (data.status === 200){
+            setToast(createUser.username)
+            navigate('/entries')
+          } else if (data.status === 400){
+              setMessage(data.msg)
+            } 
+          })
+      }
 
       let handleChange = (e) => {
         setCreateUser({...createUser,[e.target.id]:e.target.value})
@@ -52,7 +76,7 @@ const Register = ({toast, setToast}) => {
   return (
     <>
     <div>Register</div>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} method="POST">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange} ></input>
 
