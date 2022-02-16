@@ -6,6 +6,7 @@ import NewEntry from './components/NewEntry'
 import EntryDetail from './components/EntryDetail'
 import EditEntry from "./components/EditEntry";
 import Register from "./components/Register";
+import Login from "./components/Login";
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -50,6 +51,7 @@ function App() {
             <Route path="/entries/edit/:id" element={<EditEntry/>}></Route>
             <Route path="/entries/new" element={<NewEntry addEntry={addEntry}/>}></Route>
             <Route path="/register" element={<Register toast={toast} setToast={setToast}/>}></Route>
+            <Route path="/login" element={<Login toast={toast} setToast={setToast}/>}></Route>
           </Routes>
       </main>
     </div>
