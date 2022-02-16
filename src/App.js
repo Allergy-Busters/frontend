@@ -1,4 +1,6 @@
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button'
 import { useState, useEffect } from "react";
 import Landing from './components/Landing'
 import {Link , Routes, Route} from 'react-router-dom'
