@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import { useNavigate } from "react-router";
 // import NewEntry from "./NewEntry";
 
 
@@ -28,8 +29,40 @@ const entryInFocus = (e) => {
     )
   });
 
+
+
+  let navigate = useNavigate()
+
+  const logOut = () => {
+
+    fetch('http://localhost:7200/session/logout', {
+      method: "GET",
+      body: null,
+      headers: {
+        'Content-Type':'application/json'
+      }
+    })
+
+    .then((res) => {
+      return (
+        res.json() 
+      )
+    })
+    .then((data) => {
+      if (data.status === 200 ){
+        navigate('/welcome')     
+      }
+    })
+
+
+
+  }
+
+
   return (
     <div>
+
+      <button onClick={logOut}>Log out</button>
         <h2>{toast}'s Log</h2>
         <button><Link to='/entries/new'>Add New Entry</Link></button>
         {displayEntries}
