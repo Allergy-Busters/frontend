@@ -2,6 +2,8 @@ import React from "react";
 import { Link, Navigate } from 'react-router-dom'
 import { useNavigate } from "react-router";
 // import NewEntry from "./NewEntry";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Card} from 'react-bootstrap'
 
 
 const Landing = ({entries, setEntries, entry, setEntry, toast, setToast}) => {
@@ -23,9 +25,13 @@ const entryInFocus = (e) => {
   const displayEntries = entries.map((entry) => {
 
     return (
+      <Card style={{color: "#000"}}>
+        <Card.Title>  
       <Link to={`/entries/details/${entry._id}`} key={entry._id} onClick={entryInFocus}>
       <h3 key={entry._id}> {entry.date}</h3>
       </Link>
+      </Card.Title> 
+      </Card>
     )
   });
 

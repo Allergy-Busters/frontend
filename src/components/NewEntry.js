@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import {useNavigate} from 'react-router'
+import {Button} from 'react-bootstrap/Button'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const NewEntry = ({addEntry}) => {
@@ -12,13 +14,23 @@ const NewEntry = ({addEntry}) => {
         diet: '',
         exercise: '',
         potentialSymptoms: '',
-        img: '',
+        img: null,
         location: ''
       });
 
-      let navigate = useNavigate()
+    // const [fileData, setFileData]= useState()
+
+    let navigate = useNavigate()
 
     // const [outsideVisit, setOutsideVisit] = useState('');
+
+
+
+    // const data = new FormData()
+
+    // data.append('image', fileData)
+
+
 
     let handleSubmit = async(e) => {
         e.preventDefault()
@@ -45,6 +57,11 @@ const NewEntry = ({addEntry}) => {
         setEntry({...entry,[e.target.id]:e.target.value})
      }
 
+
+    let fileChangeHandler = (e) => {
+        entry.img = e.target.file
+    }
+
     let toggleCheckbox = () =>{
         setEntry({...entry, visitOutside:!entry.visitOutside})
     }
@@ -53,7 +70,8 @@ const NewEntry = ({addEntry}) => {
 
 
   return (
-  <form onSubmit={handleSubmit}>
+
+  <form onSubmit={handleSubmit} encType="multipart/form-data">
       
             <label>Today's Date: </label>
             <input type="text" id="date" name="date" placeholder="01/01/2022" onChange={handleChange}/>
@@ -74,14 +92,13 @@ const NewEntry = ({addEntry}) => {
             <input type="text" id="potentialSymptoms" name="potentialSymptoms" placeholder="Ex: My stomach aches" onChange={handleChange}></input>
         
             <label htmlFor="img">Upload Picture: </label>
-            <input type="text" id="img" name="img" placeholder="Ex:image of rash" onChange={handleChange}></input>
+            <input type="file" id="img" name="img" placeholder="Ex:image of rash" onChange={fileChangeHandler}></input>
         
             <label htmlFor="location">Location: </label>
             <input type="text" id="location" name="location" placeholder="Ex:local farm" onChange={handleChange}></input>
         
             <input type="submit" value="Enter"/>
-      
-
+          
   </form>
 
   )

@@ -14,7 +14,7 @@ const EditEntry = () => {
     diet: '',
     exercise: '',
     potentialSymptoms: '',
-    img: '',
+    img: null,
     location: ''
   });
 
@@ -34,6 +34,10 @@ const EditEntry = () => {
 
   let handleChange = (e) => {
    setEntry({...entry,[e.target.id]:e.target.value})
+}
+
+let fileChangeHandler = (e) => {
+  entry.img = e.target.file
 }
 
 let handleSubmit = async(e) => {
@@ -80,7 +84,7 @@ let handleSubmit = async(e) => {
             <input type="text" id="potentialSymptoms" name="potentialSymptoms" value={entry.potentialSymptoms} onChange={handleChange}></input>
         
             <label htmlFor="img">Upload Picture: </label>
-            <input type="text" id="img" name="img" value={entry.img} onChange={handleChange}></input>
+            <input type="file" id="img" name="img" value={entry.img} onChange={fileChangeHandler}></input>
         
             <label htmlFor="location">Location: </label>
             <input type="text" id="location" name="location" value={entry.location} onChange={handleChange}></input>
