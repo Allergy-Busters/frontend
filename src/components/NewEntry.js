@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import {useNavigate} from 'react-router'
-import {Button} from 'react-bootstrap/Button'
+import {Form} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -35,13 +35,13 @@ const NewEntry = ({addEntry}) => {
     let handleSubmit = async(e) => {
         e.preventDefault()
         console.log(entry)
-        console.log("What we are looking for")
+        // console.log("What we are looking for")
         // Adding new entry to our backend
         let response = await fetch('http://localhost:7200/entries', {
             method: "POST", 
             body: JSON.stringify(entry),
-            headers: {
-                'Content-Type':'application/json'
+            headers:{
+                // 'Content-Type':'application/json'
             }
         })
         
@@ -70,16 +70,59 @@ const NewEntry = ({addEntry}) => {
 
 
   return (
+    <div className='body' style={{alignContent:'left'}}>
+     <Form onSubmit={handleSubmit} encType="multipart/form-data">
+        {/* <form onSubmit={handleSubmit} encType="multipart/form-data"> */}
+        
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label htmlFor="todaysDate"> Today's Date:</Form.Label>
+            <Form.Control type="text" id="date" name="date" placeholder="01/01/2022" onChange={handleChange}></Form.Control>
+            </Form.Group> 
 
-  <form onSubmit={handleSubmit} encType="multipart/form-data">
-      
-            <label>Today's Date: </label>
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label htmlFor="outdoorTemp">Outdoor Temperature:</Form.Label>
+            <Form.Control type="text" id="outdoorTemp" name="outdoorTemp" placeholder="In ℉ or ℃" onChange={handleChange}></Form.Control>
+            </Form.Group>  
+
+            <Form.Group className="mb-3" id="formGridCheckbox">
+            <Form.Check label="Visit Outside:" type="checkbox"></Form.Check>
+            {/* <Form.Control type="checkbox" id="visitOutside" name="visitOutside" onChange={toggleCheckbox} checked={!entry.visitOutside}></Form.Control> */}
+            </Form.Group>  
+
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label htmlFor="diet">Diet: </Form.Label>
+            <Form.Control type="text" id="diet" name="diet" placeholder="Ex: eggs, milk, bread" onChange={handleChange}></Form.Control>
+            </Form.Group>  
+
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label htmlFor="exercise">Exercise: </Form.Label>
+            <Form.Control type="text" id="exercise" name="exercise" placeholder="Ex: Went for a run" onChange={handleChange}></Form.Control>
+            </Form.Group> 
+
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label htmlFor="potentialSymptoms">How are you feeling?: </Form.Label>
+            <Form.Control type="text" id="potentialSymptoms" name="potentialSymptoms" placeholder="Ex: My stomach aches" onChange={handleChange}></Form.Control>
+            </Form.Group>  
+
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label htmlFor="img">Upload Picture: </Form.Label>
+            <Form.Control type="file" id="img" name="img" placeholder="Ex:image of rash" onChange={fileChangeHandler}></Form.Control>
+            </Form.Group>  
+            
+            <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label htmlFor="location">Location: </Form.Label>
+            <Form.Control type="text" id="location" name="location" placeholder="Ex:local farm" onChange={handleChange}></Form.Control>
+            </Form.Group>  
+
+
+            
+            {/* <label htmlFor="todaysDate">Today's Date: </label>
             <input type="text" id="date" name="date" placeholder="01/01/2022" onChange={handleChange}/>
 
-            <label>Outdoor Temperature: </label>
+            <label htmlFor="outdoorTemp">Outdoor Temperature: </label>
             <input type="text" id="outdoorTemp" name="outdoorTemp" placeholder="In ℉ or ℃" onChange={handleChange}/>
         
-            <label>Visit outside: </label>
+            <label htmlFor="visitOutside">Visit Outside: </label>
             <input type="checkbox" id="visitOutside" name="visitOutside" onChange={toggleCheckbox} checked={!entry.visitOutside} />
        
             <label htmlFor="diet">Diet: </label>
@@ -95,11 +138,14 @@ const NewEntry = ({addEntry}) => {
             <input type="file" id="img" name="img" placeholder="Ex:image of rash" onChange={fileChangeHandler}></input>
         
             <label htmlFor="location">Location: </label>
-            <input type="text" id="location" name="location" placeholder="Ex:local farm" onChange={handleChange}></input>
+            <input type="text" id="location" name="location" placeholder="Ex:local farm" onChange={handleChange}></input> */}
         
             <input type="submit" value="Enter"/>
+              {/* </form> */}
+        </Form>
+    </div>
           
-  </form>
+
 
   )
 };

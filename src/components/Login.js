@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import{Button} from 'react-bootstrap'
+import '../General.css'
 
 const Login = ({toast, setToast}) => {
     
@@ -57,16 +59,18 @@ const Login = ({toast, setToast}) => {
 
     
     return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange} ></input>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange} ></input>
-
-                <input type="submit" value="Login"/>
+        <div className="body">
+            <h1>Sign In</h1>
+            <form className="form" onSubmit={handleSubmit}>
+                <div className="input">
+                  <label for="username">Username:</label>
+                  <input type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange} ></input>
+                </div>
+                <div className="input">
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange} ></input>
+                </div>
+                  <input style={{color:'white', backgroundColor:'blue'}}type="submit" value="Sign In"/>
                 {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
                 <p>{message}</p> 
             </form>

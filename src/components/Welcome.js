@@ -1,8 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button} from 'react-bootstrap'
-import { Breadcrumb } from 'react-bootstrap'
+import {Button, Breadcrumb} from 'react-bootstrap'
+import  '../General.css'
+
 
 const Welcome = () => {
 
@@ -19,19 +20,12 @@ const Welcome = () => {
 
 
   return (
-    <div>
-    <h2>Welcome</h2>
-    <Button varient="secondary">
-    <Breadcrumb variant="primary">
-      <Breadcrumb.Item onClick={handleClickSI}>Sign In</Breadcrumb.Item>
-      <Breadcrumb.Item onClick={handleClickR}>Register</Breadcrumb.Item>
-    </Breadcrumb>
-    </Button>
-    {/* <Button onClick={handleClickSI} >Sign In</Button>
-    <span></span>
-    <Button onClick={handleClickR} >Register</Button> */}
-    
-    
+    <div className='body'>
+      <h1>Welcome</h1> 
+      <div className='welcome-buttons'>
+      <Button onClick={handleClickSI} >Sign In</Button>{' '}
+      <Button onClick={handleClickR} >Register</Button>
+      </div>
     
     </div>
   )

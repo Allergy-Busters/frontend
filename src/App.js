@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="App">
-        <h1>Allergy Busters</h1>
+        <h1 style={{textDecorationLine: 'underline'}}>Allergy Busters</h1>
         {/* <Landing entries={entries} setEntries={setEntries}/> */}
       <main>
           <Routes>
