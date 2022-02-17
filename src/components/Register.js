@@ -1,5 +1,7 @@
-import { React, useState} from 'react'
+import { React, useState} from 'react';
 import { useNavigate } from 'react-router';
+import { Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -74,26 +76,57 @@ const Register = ({toast, setToast}) => {
 
 
   return (
-    <>
-    <div>Register</div>
-    <form onSubmit={handleSubmit} method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange} ></input>
+    <div className='body'>
+      <h1>Create Account</h1>
+      <Form onSubmit={handleSubmit} method="POST">
+      {/* <form className='form' onSubmit={handleSubmit} method="POST"> */}
+        {/* <div className='input-register'> */}
+        {/* <label htmlFor="username">Username:</label> */}
+        {/* <input type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange} ></input> */}
+        {/* </div> */}
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange} ></input>
-    
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" onChange={handleChange}></input>
+        <Form.Group className="mb-3" controlId="formUsername">
+          <Form.Label>Username: </Form.Label>
+          <Form.Control type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange}></Form.Control>
+        </Form.Group>  
+        
+        {/* <div className='input-register'> */}
+        {/* <label htmlFor="password">Password:</label> */}
+        {/* <input type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange} ></input> */}
+         {/* </div> */}
 
-        <label for="allergyOrIntolerance">Allergy Or Intolerance:</label>
-        <input type="allergyOrIntolerance" id="allergyOrIntolerance" name="allergyOrIntolerance" placeholder="Ex: Celiac, Eczema, Nuts, Lactose" onChange={handleChange}></input>
+        <Form.Group className="mb-3" controlId="formPassword">
+          <Form.Label>Password:</Form.Label>
+          <Form.Control type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange}></Form.Control>
+        </Form.Group>
+       
+        {/* <div className='input-register'> */}
+        {/* <label htmlFor="confirmPassword">Confirm Password:</label> */}
+        {/* <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" onChange={handleChange}></input> */}
+        {/* </div> */}
 
-        <input type="submit" value="Register"/>
-        {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
-        <p>{message}</p> 
-    </form>
-    </>
+        <Form.Group className="mb-3" controlId="formGroupEmail">
+          <Form.Label>Confirm Password:</Form.Label>
+          <Form.Control type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" onChange={handleChange}></Form.Control>
+        </Form.Group>
+         
+        {/* <div className='input-register'> */}
+        {/* <label htmlFor="allergyOrIntolerance">Allergy Or Intolerance:</label> */}
+        {/* <input type="allergyOrIntolerance" id="allergyOrIntolerance" name="allergyOrIntolerance" placeholder="Ex: Celiac, Eczema, Nuts, Lactose" onChange={handleChange}></input> */}
+        {/* </div> */}
+
+        <Form.Group className="mb-3" controlId="formGroupEmail">
+          <Form.Label>Allergy Or Intolerance:</Form.Label>
+          <Form.Control type="allergyOrIntolerance" id="allergyOrIntolerance" name="allergyOrIntolerance" placeholder="Ex: Celiac, Eczema, Nuts, Lactose" onChange={handleChange}></Form.Control>
+        </Form.Group>
+        {/* </div> */}
+       
+          <input type="submit" value="Register"/>
+          {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
+          <p>{message}</p> 
+      {/* </form> */}
+      </Form>
+    </div>
   )
 }
 
