@@ -1,7 +1,10 @@
 import { React, useState} from 'react';
 import { useNavigate } from 'react-router';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import BackgroundImage from '../images/background.png'
+
+import '../General.css'
 
 
 
@@ -76,8 +79,9 @@ const Register = ({toast, setToast}) => {
 
 
   return (
-    <div className='body'>
-      <h1>Create Account</h1>
+    <div className="outerBody">
+    <div class='body-register'>
+      <h2 style={{color: 'white', fontStyle: 'italic'}}>Create Account</h2>
       <Form onSubmit={handleSubmit} method="POST">
       {/* <form className='form' onSubmit={handleSubmit} method="POST"> */}
         {/* <div className='input-register'> */}
@@ -86,8 +90,10 @@ const Register = ({toast, setToast}) => {
         {/* </div> */}
 
         <Form.Group className="mb-3" controlId="formUsername">
-          <Form.Label>Username: </Form.Label>
+          
+          <Form.Label className="label">Username: </Form.Label>
           <Form.Control type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange}></Form.Control>
+        
         </Form.Group>  
         
         {/* <div className='input-register'> */}
@@ -96,8 +102,10 @@ const Register = ({toast, setToast}) => {
          {/* </div> */}
 
         <Form.Group className="mb-3" controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
+        
+          <Form.Label className="label">Password:</Form.Label>
           <Form.Control type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange}></Form.Control>
+        
         </Form.Group>
        
         {/* <div className='input-register'> */}
@@ -106,8 +114,10 @@ const Register = ({toast, setToast}) => {
         {/* </div> */}
 
         <Form.Group className="mb-3" controlId="formGroupEmail">
-          <Form.Label>Confirm Password:</Form.Label>
+         
+          <Form.Label className="label">Confirm Password:</Form.Label>
           <Form.Control type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password" onChange={handleChange}></Form.Control>
+         
         </Form.Group>
          
         {/* <div className='input-register'> */}
@@ -116,16 +126,20 @@ const Register = ({toast, setToast}) => {
         {/* </div> */}
 
         <Form.Group className="mb-3" controlId="formGroupEmail">
-          <Form.Label>Allergy Or Intolerance:</Form.Label>
+          
+          <Form.Label className="label">Allergy Or Intolerance:</Form.Label>
           <Form.Control type="allergyOrIntolerance" id="allergyOrIntolerance" name="allergyOrIntolerance" placeholder="Ex: Celiac, Eczema, Nuts, Lactose" onChange={handleChange}></Form.Control>
+        
         </Form.Group>
         {/* </div> */}
        
-          <input type="submit" value="Register"/>
+          {/* <input type="submit" value="Register"/> */} 
+          <Button value="Register" type="submit">Register</Button>
           {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
           <p>{message}</p> 
       {/* </form> */}
       </Form>
+    </div>
     </div>
   )
 }

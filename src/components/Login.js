@@ -59,18 +59,19 @@ const Login = ({toast, setToast}) => {
 
     
     return (
-        <div className="body">
-            <h1>Sign In</h1>
+        <div className="signInBody">
+            <h1 style={{color: 'white', fontStyle: 'italic'}}>Sign In</h1>
             <form className="form" onSubmit={handleSubmit}>
                 <div className="input">
-                  <label for="username">Username:</label>
+                  <label htmlFor="username" style={{fontWeight:'bold', color:'white'}}>Username:</label>
                   <input type="text" id="username" name="username" placeholder="Ex: Jill" onChange={handleChange} ></input>
                 </div>
                 <div className="input">
-                  <label for="password">Password:</label>
+                  <label htmlFor="password" style={{fontWeight:'bold', color:'white'}}>Password:</label>
                   <input type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange} ></input>
                 </div>
-                  <input style={{color:'white', backgroundColor:'blue'}}type="submit" value="Sign In"/>
+                <Button className="submit-button" value="submit" type="submit">Submit</Button>
+                  {/* <input style={{color:'white', backgroundColor:'blue'}}type="submit" value="Sign In"/> */}
                 {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
                 <p>{message}</p> 
             </form>
