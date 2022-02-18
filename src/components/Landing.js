@@ -3,7 +3,9 @@ import { Link, Navigate } from 'react-router-dom'
 import { useNavigate } from "react-router";
 // import NewEntry from "./NewEntry";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card} from 'react-bootstrap'
+import {Card, Button} from 'react-bootstrap'
+import '../General.css'
+import BackgroundImage from '../images/background.png'
 
 
 const Landing = ({entries, setEntries, entry, setEntry, toast, setToast}) => {
@@ -25,12 +27,16 @@ const entryInFocus = (e) => {
   const displayEntries = entries.map((entry) => {
 
     return (
-      <Card style={{color: "#000"}}>
-        <Card.Title>  
-      <Link to={`/entries/details/${entry._id}`} key={entry._id} onClick={entryInFocus}>
-      <h3 key={entry._id}> {entry.date}</h3>
-      </Link>
-      </Card.Title> 
+      <Card className="mb-3 bg-warning" style={{width:'12rem'}} border="primary">
+        <Card.Body>
+          <Card.Title>  
+            <Card.Text>
+              <Link to={`/entries/details/${entry._id}`} key={entry._id} onClick={entryInFocus}>
+              <h3 key={entry._id}> {entry.date}</h3>
+              </Link>
+            </Card.Text>
+          </Card.Title> 
+        </Card.Body>
       </Card>
     )
   });
@@ -67,11 +73,16 @@ const entryInFocus = (e) => {
 
   return (
     <div>
-
-      <button onClick={logOut}>Log out</button>
+        <div className="buttonAddEntry" style={{backgroundImage:`url(${BackgroundImage})`}}>
         <h2>{toast}'s Log</h2>
-        <button><Link to='/entries/new'>Add New Entry</Link></button>
+        <Link to='/entries/new' role="button" className="btn btn-outline-dark btn-lg">Add New Entry</Link>
+        </div>
+        <div className="landingLayout">
         {displayEntries}
+        </div>
+        <div className="logout">
+        <Button onClick={logOut}>Log out</Button>
+        </div>
     </div>
   )
 };

@@ -7,6 +7,15 @@
     min-height: 20vh;
 }
 
+
+div.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+  }
+
+
 /* .body-entry{
     display: flex;
     flex-direction: column;
@@ -46,5 +55,82 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    min-width: 50vh;
+    min-width: 30vh;
 }
+
+.landingLayout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 10%;
+}
+
+.logout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content:right;
+    min-height: 60vh;
+    margin-bottom: 5%;
+    margin-right: 5%;
+}
+
+.buttonAddEntry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 4vh;
+    margin-top: 5%;
+}
+
+.bgSizeCover {
+    background-image: url('./images/background.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1.0;
+    width: auto;
+    height: auto;
+    border: none;
+    resize: both;
+    overflow: scroll;
+  }
+
+  .label {
+      font-style:normal;
+      font-weight: bolder;
+      color:black;
+      align-self: flex-end;
+  }
+
+
+  .outerBody {
+    max-width: 100%;
+    background-image: url('./images/background.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    margin-top:7%;
+}
+
+  .body-register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10%;
+    min-height: 20vh;
+    margin:auto;
+}
+
+.signInBody {
+    max-width: 100%;
+    background-image: url('./images/sunny.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    margin-top:7%;
+}
+
+
