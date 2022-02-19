@@ -16,3 +16,13 @@ body {
     font-style: italic;
     font-size: 5pc
 }
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 5%;
+    min-height: 20vh;
+}

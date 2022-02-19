@@ -36,7 +36,7 @@ const EntryDetail = ({setEntries}) => {
   return (
     <>
      <div className='body body-entryDetails' style={{alignContent:'left'}}>
-      <Card className="mb-3 " style={{width: '21rem' , height: '36rem'}}>
+      <Card className="mb-3 " style={{width: '21rem' , height: '38rem'}}>
         <Card.Header>
         <h3>Entry Details</h3>
         </Card.Header>

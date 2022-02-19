@@ -27,7 +27,7 @@ const entryInFocus = (e) => {
   const displayEntries = entries.map((entry) => {
 
     return (
-      <Card className="mb-3 bg-warning bg-light" style={{width:'16rem'}} border="dark">
+      <Card className="mb-3 bg-warning bg-light" style={{width:'15rem'}} border="dark">
         <Card.Body>
           <Card.Header>
           <Link to={`/entries/details/${entry._id}`} key={entry._id} onClick={entryInFocus} style={{color: 'black'}}>
@@ -76,8 +76,8 @@ const entryInFocus = (e) => {
   return (
     <div>
         <div className="buttonAddEntry" >
-        <h2>{toast}'s Log</h2>
-        <Button variant='dark'> <Link to='/entries/new' style={{ color:'white', textDecoration: 'none' }}>Add New Entry</Link></Button>
+        <h2 style={{fontSize:'5rem', color:'white', fontFamily: 'Estrangelo Edessa'}}>{toast}'s Log</h2>
+        <Button size="lg" variant='dark'> <Link to='/entries/new' style={{ color:'white', textDecoration: 'none' }}>Add New Entry</Link></Button>
         </div>
         <div className="entries">
         {displayEntries}
