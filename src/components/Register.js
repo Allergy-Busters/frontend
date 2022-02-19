@@ -1,10 +1,10 @@
 import { React, useState} from 'react';
 import { useNavigate } from 'react-router';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Card} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BackgroundImage from '../images/background.png'
+import '../CSS/Register.css'
 
-import '../General.css'
+// import '../General.css'
 
 
 
@@ -77,11 +77,12 @@ const Register = ({toast, setToast}) => {
      }
 
 
-
   return (
-    <div className="outerBody">
+    <div>
     <div class='body-register'>
-      <h2 style={{color: 'white', fontStyle: 'italic'}}>Create Account</h2>
+      <h2 className="header">Create Account</h2>
+      <Card className="mb-3" style={{width: '21rem' , height: '22rem'}}>
+        <Card.Body className="mb-2" style={{width: '20rem'}}> 
       <Form onSubmit={handleSubmit} method="POST">
       {/* <form className='form' onSubmit={handleSubmit} method="POST"> */}
         {/* <div className='input-register'> */}
@@ -129,16 +130,18 @@ const Register = ({toast, setToast}) => {
           
           <Form.Label className="label">Allergy Or Intolerance:</Form.Label>
           <Form.Control type="allergyOrIntolerance" id="allergyOrIntolerance" name="allergyOrIntolerance" placeholder="Ex: Celiac, Eczema, Nuts, Lactose" onChange={handleChange}></Form.Control>
-        
+       
         </Form.Group>
         {/* </div> */}
        
-          {/* <input type="submit" value="Register"/> */} 
-          <Button value="Register" type="submit">Register</Button>
+          {/* <input type="submit" value="Register"/> */}
+          <Button size="lg" className="register-button" value="Register" type="submit" variant="dark">Register</Button>
           {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
           <p>{message}</p> 
       {/* </form> */}
       </Form>
+      </Card.Body>
+      </Card>
     </div>
     </div>
   )

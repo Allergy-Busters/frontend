@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 // import NewEntry from "./NewEntry";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button} from 'react-bootstrap'
-import '../General.css'
+import '../CSS/Landing.css'
 import BackgroundImage from '../images/background.png'
 
 
@@ -27,15 +27,16 @@ const entryInFocus = (e) => {
   const displayEntries = entries.map((entry) => {
 
     return (
-      <Card className="mb-3 bg-warning" style={{width:'12rem'}} border="primary">
+      <Card className="mb-3 bg-warning bg-light" style={{width:'15rem'}} border="dark">
         <Card.Body>
-          <Card.Title>  
-            <Card.Text>
-              <Link to={`/entries/details/${entry._id}`} key={entry._id} onClick={entryInFocus}>
+          <Card.Header>
+          <Link to={`/entries/details/${entry._id}`} key={entry._id} onClick={entryInFocus} style={{color: 'black'}}>
               <h3 key={entry._id}> {entry.date}</h3>
-              </Link>
-            </Card.Text>
-          </Card.Title> 
+          </Link>
+          </Card.Header>  
+            <Card.Title style={{fontSize:'2rem'}}>
+              {entry.potentialSymptoms}
+            </Card.Title>
         </Card.Body>
       </Card>
     )
@@ -71,17 +72,18 @@ const entryInFocus = (e) => {
   }
 
 
+
   return (
     <div>
-        <div className="buttonAddEntry" style={{backgroundImage:`url(${BackgroundImage})`}}>
-        <h2>{toast}'s Log</h2>
-        <Link to='/entries/new' role="button" className="btn btn-outline-dark btn-lg">Add New Entry</Link>
+        <div className="buttonAddEntry" >
+        <h2 style={{fontSize:'5rem', color:'white', fontFamily: 'Estrangelo Edessa'}}>{toast}'s Log</h2>
+        <Button size="lg" variant='dark'> <Link to='/entries/new' style={{ color:'white', textDecoration: 'none' }}>Add New Entry</Link></Button>
         </div>
-        <div className="landingLayout">
+        <div className="entries">
         {displayEntries}
         </div>
         <div className="logout">
-        <Button onClick={logOut}>Log out</Button>
+        <Button size="lg" variant="dark" onClick={logOut}>Log out</Button>
         </div>
     </div>
   )

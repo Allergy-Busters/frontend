@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import{Button} from 'react-bootstrap'
-import '../General.css'
+import '../CSS/Login.css'
 
 const Login = ({toast, setToast}) => {
     
@@ -59,8 +59,8 @@ const Login = ({toast, setToast}) => {
 
     
     return (
-        <div className="signInBody">
-            <h1 style={{color: 'white', fontStyle: 'italic'}}>Sign In</h1>
+        <div>
+            <h1 className="header">Sign In</h1>
             <form className="form" onSubmit={handleSubmit}>
                 <div className="input">
                   <label htmlFor="username" style={{fontWeight:'bold', color:'white'}}>Username:</label>
@@ -70,13 +70,11 @@ const Login = ({toast, setToast}) => {
                   <label htmlFor="password" style={{fontWeight:'bold', color:'white'}}>Password:</label>
                   <input type="password" id="password" name="password" placeholder="Ex:123%aBc8" onChange={handleChange} ></input>
                 </div>
-                <Button className="submit-button" value="submit" type="submit">Submit</Button>
+                <Button className="submit-button" value="submit" type="submit" variant="dark">Submit</Button>
                   {/* <input style={{color:'white', backgroundColor:'blue'}}type="submit" value="Sign In"/> */}
                 {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
-                <p>{message}</p> 
+                <p>{message}</p>
             </form>
-            
-
         </div>
     )
 }

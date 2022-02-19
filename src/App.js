@@ -10,6 +10,7 @@ import EditEntry from "./components/EditEntry";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Welcome from './components/Welcome';
+import { Nav, Container, Navbar } from 'react-bootstrap';
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -44,8 +45,22 @@ function App() {
 
 
   return (
-    <div className="App">
-        <h1 style={{textDecorationLine: 'underline'}}>Allergy Busters</h1>
+    <div>
+      <Navbar bg="dark" variant="dark" style={{opacity: 0.6}}>
+        <Container>
+          <Navbar.Brand style={{fontFamily: 'serif', fontSize: 40, opacity:1}}>Allergy Busters</Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Nav.Link style={{color:"gray"}}>
+              <h4>About</h4>
+            </Nav.Link>
+            <Nav.Link style={{color:"gray"}}>
+              <h4>Helpful Resources</h4>
+            </Nav.Link>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+        {/* <h1 style={{textDecorationLine: 'underline'}}>Allergy Busters</h1> */}
         {/* <Landing entries={entries} setEntries={setEntries}/> */}
       <main>
           <Routes>
