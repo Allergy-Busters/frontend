@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import {useNavigate} from 'react-router'
-import {Form, Card, Button} from 'react-bootstrap'
+import {Form, Card, Button,} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CSS/NewEntry.css'
+import {Link} from 'react-router-dom'
 
 
 const NewEntry = ({addEntry}) => {
@@ -79,7 +80,7 @@ const NewEntry = ({addEntry}) => {
         
             <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label  className="label" htmlFor="todaysDate"> Today's Date:</Form.Label>
-            <Form.Control type="text" id="date" name="date" placeholder="01/01/2022" onChange={handleChange}></Form.Control>
+            <Form.Control type="text" id="date" name="date" placeholder="Ex: 01/01/2022" onChange={handleChange}></Form.Control>
             </Form.Group> 
 
             <Form.Group className="mb-3" controlId="formGroupEmail">
@@ -143,10 +144,15 @@ const NewEntry = ({addEntry}) => {
             <label htmlFor="location">Location: </label>
             <input type="text" id="location" name="location" placeholder="Ex:local farm" onChange={handleChange}></input> */}
 
-            <Button size="lg" className="newEntry-button" type ="submit" variant="dark">
-            Add New Entry
-            {/* <input type="submit" value="Enter"/> */}
+    
+            <div className="entryNew-buttons">
+            <Button size="lg" className="editEntry-button" type ="submit" variant="dark">
+              Add New Entry
             </Button>
+            <Button size="lg" variant="dark">
+            <Link to={'/entries'} style={{textDecoration: 'none', color: 'white'}}>Cancel</Link>
+            </Button>
+            </div>
               {/* </form> */}
         </Form>
         </Card.Body>
