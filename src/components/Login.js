@@ -73,7 +73,7 @@ const Login = ({toast, setToast}) => {
                 <Button className="submit-button" value="submit" type="submit" variant="dark">Submit</Button>
                   {/* <input style={{color:'white', backgroundColor:'blue'}}type="submit" value="Sign In"/> */}
                 {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
-                {/* <p>{message}</p> */}
+                <p>{message}</p>
             </form>
         </div>
     )

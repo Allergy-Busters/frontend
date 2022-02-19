@@ -2,7 +2,7 @@ import React from 'react';
 import { useState , useEffect} from 'react';
 import {useParams} from 'react-router-dom'
 import {Link} from 'react-router-dom'
-import {Card, Button} from 'react-bootstrap'
+import {Card, Button, ListGroup} from 'react-bootstrap'
 import '../CSS/EntryDetails.css'
 
 
@@ -36,19 +36,21 @@ const EntryDetail = ({setEntries}) => {
   return (
     <>
      <div className='body' style={{alignContent:'left'}}>
-      <Card className="mb-3" style={{width: '21rem' , height: '25rem'}}>
+      <Card className="mb-3" style={{width: '21rem' , height: '36rem'}}>
         <Card.Header>
         <h3>Entry Details</h3>
         </Card.Header>
         <Card.Body className="mb-2">
-          <h5><span style={{fontWeight:'bold'}}>Date:</span> {entry.date} </h5>
-          <h5><span style={{fontWeight:'bold'}}>Outdoor Temperature:</span> {entry.outdoorTemp}</h5>
-          <h5><span style={{fontWeight:'bold'}}>Visit Outside: </span>{entry.visitOutside ? "Did not go outside" : "Visited outside"}</h5>
-          <h5><span style={{fontWeight:'bold'}}>Diet: </span>{entry.diet}</h5>
-          <h5><span style={{fontWeight:'bold'}}>Did you exercise? </span>{entry.exercise}</h5>
-          <h5><span style={{fontWeight:'bold'}}>How are you feeling? </span>{entry.potentialSymptoms}</h5>
-          <h5><span style={{fontWeight:'bold'}}>Picture of visible reactions: </span></h5><img src={entry.img} alt="something"></img>
-          <h5><span style={{fontWeight:'bold'}}>Where were you when you noticed the reaction? </span>{entry.location}</h5>
+          <ListGroup variant="flush">
+            <ListGroup.Item><h5><span style={{fontWeight:'bold'}}>Date:</span> {entry.date} </h5></ListGroup.Item>
+            <ListGroup.Item><h5><span style={{fontWeight:'bold'}}>Outdoor Temperature:</span> {entry.outdoorTemp}</h5></ListGroup.Item>
+            <ListGroup.Item><h5><span style={{fontWeight:'bold'}}>Visit Outside: </span>{entry.visitOutside ? "Did not go outside" : "Visited outside"}</h5></ListGroup.Item>
+            <ListGroup.Item><h5><span style={{fontWeight:'bold'}}>Diet: </span>{entry.diet}</h5></ListGroup.Item>
+            <ListGroup.Item><h5><span style={{fontWeight:'bold'}}>Did you exercise? </span>{entry.exercise}</h5></ListGroup.Item>
+            <ListGroup.Item><h5><span style={{fontWeight:'bold'}}>How are you feeling? </span>{entry.potentialSymptoms}</h5></ListGroup.Item>
+            <ListGroup.Item><h5><span style={{fontWeight:'bold'}}>Picture of visible reactions: </span></h5><img src={entry.img} alt="something"></img></ListGroup.Item>
+            <ListGroup.Item><h5><span style={{fontWeight:'bold'}}>Where were you when you noticed the reaction? </span>{entry.location}</h5></ListGroup.Item>
+          </ListGroup>
         </Card.Body>
       </Card>
       <div className="entryDetail-buttons"> 
