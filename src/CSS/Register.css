@@ -42,3 +42,11 @@ body {
     margin-right: 20%;
     margin-top: 15%; */
 }
+
+
+.label {
+    font-style:normal;
+    font-weight: bolder;
+    color:black;
+    align-self: flex-end;
+}
