@@ -35,8 +35,8 @@ const EntryDetail = ({setEntries}) => {
   
   return (
     <>
-     <div className='body' style={{alignContent:'left'}}>
-      <Card className="mb-3" style={{width: '21rem' , height: '36rem'}}>
+     <div className='body body-entryDetails' style={{alignContent:'left'}}>
+      <Card className="mb-3 " style={{width: '21rem' , height: '36rem'}}>
         <Card.Header>
         <h3>Entry Details</h3>
         </Card.Header>
@@ -54,9 +54,9 @@ const EntryDetail = ({setEntries}) => {
         </Card.Body>
       </Card>
       <div className="entryDetail-buttons"> 
-        <Button variant="dark"><Link to={`/entries/edit/${id}`} style={{color: 'white'}}>Edit</Link></Button>{' '}
-        <Button variant="dark" onClick={deleteEntry}><Link to='/entries' style={{color: 'white'}}>Delete</Link></Button>{' '}
-        <Button variant="dark"><Link to='/entries' style={{color: 'white'}}>Return to All Entries</Link></Button>
+        <Button variant="dark"><Link to={`/entries/edit/${id}`} style={{textDecoration: 'none', color: 'white'}}>Edit</Link></Button>{' '}
+        <Button variant="dark" onClick={deleteEntry}><Link to='/entries' style={{textDecoration: 'none', color: 'white'}}>Delete</Link></Button>{' '}
+        <Button variant="dark"><Link to='/entries' style={{textDecoration: 'none', color: 'white'}}>Return to All Entries</Link></Button>
       </div>
       </div>
     </>
