@@ -71,7 +71,7 @@ const NewEntry = ({addEntry}) => {
 
 
   return (
-    <div className='body' style={{alignContent:'left'}}>
+    <div className='body body-newEntry' style={{alignContent:'left'}}>
     <Card className="mb-3" style={{width: '21rem' , height: '41rem'}}>
     <Card.Body className="mb-2" style={{width: '20rem'}}> 
      <Form onSubmit={handleSubmit} encType="multipart/form-data">
