@@ -7,6 +7,12 @@
     min-height: 20vh;
 }
 
+body {
+    background-size: cover;
+    margin: 0%;
+    background-color: aquamarine;
+    height: auto
+}
 
 div.transbox {
     margin: 30px;
