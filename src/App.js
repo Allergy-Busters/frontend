@@ -15,6 +15,7 @@ import { Nav, Container, Navbar } from 'react-bootstrap';
 function App() {
   const [entries, setEntries] = useState([]);
   const[toast, setToast] = useState('');
+  const[url, setUrl] = useState();
 
 
  
@@ -29,6 +30,12 @@ function App() {
 
   useEffect(() => {
     getEntries();
+
+    // let deployedUrl='https://allergybusters.herokuapp.com/'
+
+/////MATT ADDED ON 2/19////////
+  const url = process.env.REACT_APP_ENV === 'production' ? process.env.MONGODB_URI : 'localhost:7200/'
+  setUrl(url)
   }, []);
 
   // Entry Details
@@ -41,7 +48,6 @@ function App() {
     setEntries([...entries, newEntry]);
   };
 
-  
 
 
   return (
