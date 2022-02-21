@@ -21,22 +21,30 @@ function App() {
  
 
   // Landing
-  let getEntries = async () => {
-    let data = await fetch('http://localhost:7200/entries')
-    let json = await data.json();
-      setEntries(json);
-      console.log(json)
-  }
+  // let getEntries = async () => {
+  //   let data = await fetch('http://localhost:7200/entries')
+  //   let json = await data.json();
+  //     setEntries(json);
+  //     console.log(json)
+  // }
 
   useEffect(() => {
-    getEntries();
+    // getEntries();
 
-    // let deployedUrl='https://allergybusters.herokuapp.com/'
+  // let deployedUrl='https://allergybusters-backend.herokuapp.com/' 
+  //https://allergybusters-backend.herokuapp.com/
+  //https://git.heroku.com/allergybusters-backend.git
 
-/////MATT ADDED ON 2/19////////
-  const url = process.env.REACT_APP_ENV === 'production' ? process.env.MONGODB_URI : 'localhost:7200/'
+  const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com/' : 'http://localhost:7200/entries'
   setUrl(url)
+  fetch(url)
+    .then((response) => response.json())
+    .then(data => {
+      setEntries(data)  
+    })
   }, []);
+
+ 
 
   // Entry Details
 
