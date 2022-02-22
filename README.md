@@ -31,6 +31,7 @@ For this application we used mongoose and Mongodb to create a database for daily
 Features to continue working on: 
 
 1.) Ability for User to upload an image for each entry via Cloudinary
+
 2.) Ability for User to mark their location for each entry on a map, via google maps or mapbox. 
 
 Screenshots: 
