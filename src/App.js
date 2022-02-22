@@ -10,6 +10,7 @@ import EditEntry from "./components/EditEntry";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Welcome from './components/Welcome';
+import About from "./components/About";
 import { Nav, Container, Navbar } from 'react-bootstrap';
 
 function App() {
@@ -65,7 +66,7 @@ function App() {
           <Navbar.Brand style={{fontFamily: 'serif', fontSize: 40, opacity:1}}>Allergy Busters</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
-            <Nav.Link style={{color:"gray"}}>
+            <Nav.Link href="/about" style={{color:"gray"}}>
               <h4>About</h4>
             </Nav.Link>
             <Nav.Link style={{color:"gray"}}>
@@ -85,6 +86,7 @@ function App() {
             <Route path="/entries/new" element={<NewEntry addEntry={addEntry}/>}></Route>
             <Route path="/register" element={<Register toast={toast} setToast={setToast}/>}></Route>
             <Route path="/login" element={<Login toast={toast} setToast={setToast}/>}></Route>
+            <Route path="/about" element={<About/>}></Route>
           </Routes>
       </main>
     </div>

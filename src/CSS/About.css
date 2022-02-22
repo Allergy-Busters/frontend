@@ -1,0 +1,19 @@
+body {
+    background-size: cover;
+    margin: 0%;
+    background-image: url("https://images.unsplash.com/photo-1611764461465-09162da6465a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80");
+    height: auto
+}
+
+.about {
+    margin: auto;
+    padding: 8px;
+}
+
+
+.ourPhotos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+}
