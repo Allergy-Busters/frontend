@@ -15,5 +15,19 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items:center;
+    align-items:flex-end;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.header-team {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 20%;
+    color:black;
+    font-family: 'fantasy';
+    font-style: italic;
+    font-size: 3pc
 }
