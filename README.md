@@ -34,7 +34,5 @@ Features to continue working on:
 2.) Ability for User to mark their location for each entry on a map, via google maps or mapbox. 
 
 
-Screenshots: 
 
-<img src={require('/images/welcome.png')} alt="Welcome Page" height={250} width={250} /> 
 
