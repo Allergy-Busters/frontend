@@ -32,6 +32,7 @@ const Login = ({toast, setToast}) => {
         fetch(url + '/sessions/login', {
           method: "POST", 
           mode: "no-cors",
+
           body: JSON.stringify(loggedInUser),
           headers: {
             'Access-Control-Allow-Origin' : '*',
