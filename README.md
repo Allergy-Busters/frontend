@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+Allergy Busters! 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Allergy Busters is an app that allows users to track their daily habits, environmental factors, and potential irritants in order to help them better understand the causes of a particular allergy/intolerance. The information collected can further aid medical professionals to properly diagnose an allergy/intolerance and develop a proper treatment or avoidance plan.
 
-## Available Scripts
 
-In the project directory, you can run:
+MAIN TECHNOLOGY:
+React
+Css
+JS
+Express 
+Bootstrap
+Mongoose 
+Node
 
-### `npm start`
+Installation of the following is required: 
+React 
+Nodemon
+Npm i 
+Mongoose
+Use-navigation
+React-router-dom
+Bcrypt
+Express
+Express-session
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Information: 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+For this application we used mongoose and Mongodb to create a database for daily entries and Users. We used React components for our frontend and bootstrap for styling. Users can register or sign-in if they already have an account and add, edit or delete entries to log their daily habits and potential symptoms- the application contains full CRUD functionality.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Features to continue working on: 
 
-### `npm run build`
+1.) Ability for User to upload an image for each entry via Cloudinary
+2.) Ability for User to mark their location for each entry on a map, via google maps or mapbox. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
