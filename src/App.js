@@ -19,8 +19,6 @@ function App() {
   const[url, setUrl] = useState();
 
 
- 
-
   // Landing
   // let getEntries = async () => {
   //   let data = await fetch('http://localhost:7200/entries')

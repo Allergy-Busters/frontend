@@ -32,12 +32,12 @@ const Register = ({toast, setToast}) => {
 
 
     let handleSubmit = (e) =>{
-
+      const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com/' : 'http://localhost:7200'
       e.preventDefault()
         // if(createUser.password === createUser.confirmPassword){
         //   setCreateUser({...createUser, valid: true})
         //   setToast(`${createUser.username}`)
-      fetch('http://localhost:7200/session/register', {
+      fetch(url + '/session/register', {
           method: "POST", 
           body: JSON.stringify(createUser),
           headers: {

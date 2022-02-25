@@ -14,7 +14,9 @@ const EntryDetail = ({setEntries}) => {
 
   useEffect(()=> {
     const showDetails = async() => {
-      let  entryResponse = await fetch('http://localhost:7200/entries/details/' + id) 
+      const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com/' : 'http://localhost:7200/entries'
+      // 'http://localhost:7200/entries/details/'
+      let  entryResponse = await fetch(url +'/details/' + id) 
       let json = await entryResponse.json()
       setEntry(json)
     }
@@ -22,7 +24,9 @@ const EntryDetail = ({setEntries}) => {
   }, [id]) 
 
   const deleteEntry = async(entry) => {
-    let data = await fetch('http://localhost:7200/entries/details/' + id, {
+    const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com/' : 'http://localhost:7200/entries'
+    // 'http://localhost:7200/entries/details/'
+    let data = await fetch(url + '/details/' + id, {
       method: "DELETE",
       body: null,
       headers: {

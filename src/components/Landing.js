@@ -45,10 +45,10 @@ const entryInFocus = (e) => {
 
 
   let navigate = useNavigate()
-
+//'http://localhost:7200/session/logout'
   const logOut = () => {
-
-    fetch('http://localhost:7200/session/logout', {
+const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com/' : 'http://localhost:7200'
+    fetch(url + '/session/logout', {
       method: "GET",
       body: null,
       headers: {
