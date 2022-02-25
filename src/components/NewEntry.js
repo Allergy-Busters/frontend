@@ -38,8 +38,8 @@ const NewEntry = ({addEntry}) => {
         console.log(entry)
         // console.log("What we are looking for")
         // Adding new entry to our backend
-        //const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com' : 'http://localhost:7200/'
-        let response = await fetch('http://localhost:7200/', {
+        const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com' : 'http://localhost:7200/entries'
+        let response = await fetch(url, {
             method: "POST", 
             body: JSON.stringify(entry),
             headers:{
