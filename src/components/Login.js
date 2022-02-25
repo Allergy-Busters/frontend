@@ -15,7 +15,7 @@ const Login = ({toast, setToast}) => {
     });
 
     const[loggedInUser, setLoggedInUser] = useState(user)
-    const[message, setMessage] = useState('')
+    const[msg, setMessage] = useState('')
 
 
     let navigate = useNavigate()
@@ -27,18 +27,20 @@ const Login = ({toast, setToast}) => {
 
     let handleSubmit = (e) =>{
         e.preventDefault()
+        const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com/' : 'http://localhost:7200'
 
-        fetch('http://localhost:7200/session/login', {
+        fetch(url + '/sessions/login', {
           method: "POST", 
+          mode: "no-cors",
           body: JSON.stringify(loggedInUser),
           headers: {
+            'Access-Control-Allow-Origin' : '*',
             'Content-Type':'application/json'
           }
-     
         })
-        .then((res)=> {
+        .then((response)=> {
           return(
-            res.json()
+            response.json()
           )
         })
         .then((data)=> {
@@ -48,14 +50,12 @@ const Login = ({toast, setToast}) => {
             navigate('/entries')
           } else if (data.status === 400){
               setMessage(data.msg)
+              console.log(msg)
             } 
           })
          }
 
         
-    
-    
-    
 
     
     return (
@@ -73,7 +73,7 @@ const Login = ({toast, setToast}) => {
                 <Button className="submit-button" value="submit" type="submit" variant="dark">Submit</Button>
                   {/* <input style={{color:'white', backgroundColor:'blue'}}type="submit" value="Sign In"/> */}
                 {/* <button type="button" className="reset" onClick={ resetUser }>Reset</button> */}
-                <p>{message}</p>
+                <p style={{fontWeight: 'bold', color:'white'}}>{msg}</p>
             </form>
         </div>
     )

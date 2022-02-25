@@ -23,8 +23,10 @@ const EditEntry = () => {
   let navigate = useNavigate()
 
   useEffect(()=> {
+    const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com/' : 'http://localhost:7200/entries'
     const editDetails = async() => {
-      let  entryResponse = await fetch('http://localhost:7200/entries/details/' + id) 
+      // 'http://localhost:7200/entries/details/'
+      let  entryResponse = await fetch(url + '/details/' + id) 
       let json = await entryResponse.json()
       console.log(json)
       setEntry(json)
@@ -42,9 +44,11 @@ let fileChangeHandler = (e) => {
 }
 
 let handleSubmit = async(e) => {
+    const url = process.env.REACT_APP_ENV === 'production' ? 'https://allergybusters-backend.herokuapp.com/' : 'http://localhost:7200/entries'
     e.preventDefault()
     // Sending updated entry to our backend
-    let response = await fetch('http://localhost:7200/entries/edit/' + id, {
+    // 'http://localhost:7200/entries/edit/'
+    let response = await fetch(url + '/edit/' + id, {
         method: "PUT", 
         body: JSON.stringify(entry),
         headers: {
@@ -129,36 +133,3 @@ let handleSubmit = async(e) => {
 
 
 export default EditEntry;
-
-
-{/* <form onSubmit= {handleSubmit}>
-      
-            <label>Today's Date: </label>
-            <input type="text" id="date" name="date" value={entry.date} onChange={handleChange}></input>
-
-            <label>Outdoor Temperature: </label>
-            <input type="text" id="outdoorTemp" name="outdoorTemp" value={entry.outdoorTemp} onChange={handleChange}></input>
-        
-            <label>Visit outside: </label>
-            <input type="checkbox" id="visitOutside" name="visitOutside" onChange={toggleCheckbox} checked={!entry.visitOutside}/>
-       
-            <label htmlFor="diet">Diet: </label>
-            <input type="text" id="diet" name="diet" value={entry.diet} onChange={handleChange}></input>
-        
-            <label htmlFor="exercise">Exercise: </label>
-            <input type="text" id="exercise" name="exercise" value={entry.exercise} onChange={handleChange} ></input>
-        
-            <label htmlFor="potentialSymptoms">How are you feeling?: </label>
-            <input type="text" id="potentialSymptoms" name="potentialSymptoms" value={entry.potentialSymptoms} onChange={handleChange}></input>
-        
-            <label htmlFor="img">Upload Picture: </label>
-            <input type="file" id="img" name="img" value={entry.img} onChange={fileChangeHandler}></input>
-        
-            <label htmlFor="location">Location: </label>
-            <input type="text" id="location" name="location" value={entry.location} onChange={handleChange}></input>
-        
-            <input type="submit" value="Enter"/>
-      
-        </form> */}
-        
- {/* <button><Link to={`/entries/details/${id}`}>Back</Link></button> */}
