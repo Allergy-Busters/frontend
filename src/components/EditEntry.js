@@ -67,7 +67,6 @@ let handleSubmit = async(e) => {
 
   return (
     <>
-  
 
     <div className='body body-newEntry' style={{alignContent:'left'}}>
     <Card className="mb-3" style={{width: '21rem' , height: '41rem'}}>
@@ -86,8 +85,8 @@ let handleSubmit = async(e) => {
             </Form.Group>  
 
             <Form.Group className="mb-3" id="formGridCheckbox">
-            <Form.Check className="label" label="Visit Outside" type="checkbox" checked={!entry.visitOutside}></Form.Check>
-            {/* <Form.Control type="checkbox" id="visitOutside" name="visitOutside" onChange={toggleCheckbox} checked={!entry.visitOutside}></Form.Control> */}
+            <Form.Check className="label" label="Visit Outside" type="checkbox" onChange={toggleCheckbox} checked={!entry.visitOutside} ></Form.Check>
+            {/* <Form.Control type="checkbox" id="visitOutside" name="visitOutside" ></Form.Control> */}
             </Form.Group>  
 
             <Form.Group className="mb-3" controlId="formGroupEmail">
