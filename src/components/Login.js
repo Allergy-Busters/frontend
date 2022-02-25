@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import{Button} from 'react-bootstrap'
+import{Button, Alert} from 'react-bootstrap'
 import '../CSS/Login.css'
 
 const Login = ({toast, setToast}) => {
@@ -32,7 +32,6 @@ const Login = ({toast, setToast}) => {
         fetch(url + '/sessions/login', {
           method: "POST", 
           mode: "no-cors",
-
           body: JSON.stringify(loggedInUser),
           headers: {
             'Access-Control-Allow-Origin' : '*',
