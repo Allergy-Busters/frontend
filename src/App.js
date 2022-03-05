@@ -11,6 +11,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Welcome from './components/Welcome';
 import About from "./components/About";
+import Map from "./components/Map";
 import { Nav, Container, Navbar } from 'react-bootstrap';
 
 function App() {
