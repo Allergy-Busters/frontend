@@ -86,6 +86,7 @@ function App() {
             <Route path="/register" element={<Register toast={toast} setToast={setToast}/>}></Route>
             <Route path="/login" element={<Login toast={toast} setToast={setToast}/>}></Route>
             <Route path="/about" element={<About/>}></Route>
+            <Route path="/map" element={<Map/>}></Route>
           </Routes>
       </main>
     </div>
