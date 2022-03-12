@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRef, useEffect, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
+import mapboxgl  from 'mapbox-gl';
 import '../CSS/Map.css'
  
 mapboxgl.accessToken = 'pk.eyJ1IjoibWdob2xkZW4xMyIsImEiOiJjbDBkNDRuZXMwNWR1M2pvODV6aG53Y2tqIn0.gKTYLFrZHrCYcEllOKMJ1A';
@@ -16,7 +16,7 @@ export default function MapPage() {
         if (map.current) return;
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/streets-v11',
+            style: 'mapbox://styles/mgholden13/cl0n6ncem000w15mth7su8u91',
             center:[lng, lat],
             zoom: zoom
         })
@@ -36,6 +36,11 @@ export default function MapPage() {
                 Longitude= {lng} : Latitude= {lat} : Zoom= {zoom}
             </div>
             <div ref={mapContainer} className="map-cotainer"/>
+            {/* <Marker latitude={[1]} longitude={[0]}>
+                <button class="marker-btn">
+                    <img src="../public/marker.png" alt="Map Marker"/>
+                </button>
+            </Marker> */}
         </div>
     )
 }

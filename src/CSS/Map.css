@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     margin: auto;
+    height: 5 rem;
     /* min-height: 25vh;
     max-height: 90vh; */
 
@@ -13,9 +14,20 @@
     padding: 6px 12px;
     font-family: monospace;
     z-index: 1;
-    position: absolute;
+    position: center;
     top: 0;
     left: 0;
-    margin: 30% 20%;
+    margin: 10% 20%;
     border-radius: 4px;
+}
+
+.marker-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.marker-btn img{
+    width: 20px;
+    height: 20px;
 }

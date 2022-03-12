@@ -145,7 +145,10 @@ const NewEntry = ({addEntry}) => {
             <input type="text" id="location" name="location" placeholder="Ex:local farm" onChange={handleChange}></input> */}
 
     
-            <div className="entryNew-buttons">
+            <div className="d-grid gap-2 entryNew-buttons">
+            <Button size="lg" variant="dark">
+                <Link to={'/map'} style={{textDecoration: 'none', color: 'white'}}>Map Your Location</Link>
+            </Button>
             <Button size="lg" className="editEntry-button" type ="submit" variant="dark">
               Add New Entry
             </Button>
