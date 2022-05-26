@@ -51,7 +51,7 @@ const NewEntry = ({addEntry}) => {
         let newEntry = await response.json()
         console.log(newEntry)
         addEntry(newEntry)
-        navigate('/entries')
+        navigate('/recordlocation')
 
     }
 

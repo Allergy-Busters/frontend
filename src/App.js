@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import Welcome from './components/Welcome';
 import About from "./components/About";
 import Map from "./components/Map";
+import RecordLocationQ from "./components/RecordLocationQ";
 import { Nav, Container, Navbar } from 'react-bootstrap';
 
 function App() {
@@ -87,6 +88,7 @@ function App() {
             <Route path="/login" element={<Login toast={toast} setToast={setToast}/>}></Route>
             <Route path="/about" element={<About/>}></Route>
             <Route path="/map" element={<Map/>}></Route>
+            <Route path="/recordedlocation" element={<RecordLocationQ/>}></Route>
           </Routes>
       </main>
     </div>
